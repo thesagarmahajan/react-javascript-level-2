@@ -2,6 +2,7 @@ import { Component } from "react";
 import {Button, Form, Table, Modal} from "react-bootstrap"
 
 class UserEditModal extends Component{
+
     constructor(props){
         super(props)
         this.state={
@@ -13,13 +14,14 @@ class UserEditModal extends Component{
         }
     }
 
-    handleChange = (e)=>{
-        let name = e.target.name;
-        let value = e.target.value;
-        this.setState({[name]:value})
-        console.log(value)
+    handleModalFormChange = (e)=>{
+        this.setState({
+            udata:{
+                [e.target.name]:e.target.value
+            }
+        })
+        console.log(this.state)
     }
-
 
     render(){
         
@@ -30,15 +32,15 @@ class UserEditModal extends Component{
                 </Modal.Header>
 
                 <Modal.Body>
-                    <Form onSubmit={(e)=>this.props.handleEditModalSubmit(e,this.state.udata)}>
+                    <Form onSubmit={(e)=>this.props.handleEditModalSubmit(e,this.props.udata)}>
                         <Form.Group className='mb-3'>
-                            <Form.Control type="text" name="name" value={this.state.udata.name} onChange={this.handleChange}/>
+                            <Form.Control type="text" name="name"  value={this.props.udata.name} onChange={this.props.handleModalFormChange}/>
                         </Form.Group>
                         <Form.Group className='mb-3'>
-                            <Form.Control type="email" name="email" value={this.state.udata.email} onChange={this.handleChange}/>
+                            <Form.Control type="email" name="email" value={this.props.udata.email} onChange={this.props.handleModalFormChange}/>
                         </Form.Group>
                         <Form.Group className='mb-3'>
-                            <Form.Control type="number" name="phone" value={this.state.udata.phone} onChange={this.handleChange}/>
+                            <Form.Control type="number" name="phone" value={this.props.udata.phone} onChange={this.props.handleModalFormChange}/>
                         </Form.Group>
                         <div className="d-grid gap-2">
                             <Button type="submit">SUBMIT</Button>
@@ -82,8 +84,11 @@ class AllUsers extends Component{
         this.state = {
             udata:[],
             editModal:false,
-            userToUpdate:{},
-            updatedUserData:{}
+            userToUpdate:{
+                name:"",
+                email:"",
+                phone:""
+            }
         }
     }
 
@@ -130,6 +135,27 @@ class AllUsers extends Component{
         e.preventDefault()
         console.log(e)
         console.log(udata)
+        fetch(`${this.baseUrl}/user/update`, {
+            method:"PUT",
+            body:JSON.stringify(udata),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        }).then(res=>{
+            if(res.status==200){
+                this.setState({...this.state, editModal:false})
+                this.componentDidMount()
+            }
+            else{
+                alert("Some Error")
+            }
+        })
+    }
+
+    handleModalFormChange = (e) => {
+        let name = e.target.name;
+        let value = e.target.value;
+        this.setState({userToUpdate:{...this.state.userToUpdate,[name]:value}})
     }
 
     render(){
@@ -153,7 +179,7 @@ class AllUsers extends Component{
                         }
                     </tbody>
                 </Table>
-                <UserEditModal udata={this.state.userToUpdate} editmodal={this.state.editModal} handleClose={this.handleClose} handleEditModalSubmit={(e, udata)=>this.onEditModalSubmit(e, udata)} />
+                <UserEditModal udata={this.state.userToUpdate} editmodal={this.state.editModal} handleClose={this.handleClose} handleEditModalSubmit={(e, udata)=>this.onEditModalSubmit(e, udata)} handleModalFormChange={this.handleModalFormChange} />
             </>
         )
     }
