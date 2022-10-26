@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {baseurl} from "../globals/Config"
 import {Button, Form, Table, Modal} from "react-bootstrap"
 
 class UserEditModal extends Component{
@@ -53,7 +54,6 @@ class UserEditModal extends Component{
 }
 
 class UserInfoRow extends Component{
-    baseUrl="http://localhost:8080"
 
     constructor(props){
         super(props)
@@ -77,7 +77,6 @@ class UserInfoRow extends Component{
 
 class AllUsers extends Component{
 
-    baseUrl="http://localhost:8080"
 
     constructor(props){
         super(props)
@@ -93,7 +92,7 @@ class AllUsers extends Component{
     }
 
     componentDidMount(){
-        fetch(this.baseUrl+"/user/all").then(res=>res.json()).then(data=>this.setState({udata:data}))
+        fetch(baseurl+"/user/all").then(res=>res.json()).then(data=>this.setState({udata:data}))
     }
 
 
@@ -103,7 +102,7 @@ class AllUsers extends Component{
 
 
     handleDelete = (id) =>{
-        fetch(this.baseUrl+"/user/delete/"+id, {method:"DELETE"}).then(res=>{
+        fetch(baseurl+"/user/delete/"+id, {method:"DELETE"}).then(res=>{
             if(true){
                 alert("User Deleted Successfully")
                 let filteredUsers = this.state.udata.filter(user=>{
@@ -135,7 +134,7 @@ class AllUsers extends Component{
         e.preventDefault()
         console.log(e)
         console.log(udata)
-        fetch(`${this.baseUrl}/user/update`, {
+        fetch(`${baseurl}/user/update`, {
             method:"PUT",
             body:JSON.stringify(udata),
             headers:{
@@ -161,6 +160,7 @@ class AllUsers extends Component{
     render(){
         return (
             <>
+                <h1>Class CRUD</h1>
                 <Table stripped="1" border="1" hover>
                     <thead>
                         <tr>

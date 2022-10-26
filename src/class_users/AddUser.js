@@ -1,10 +1,10 @@
 // Imported bootstrap.min.css in index.js file only once
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import {Form, Row, Button, Col} from 'react-bootstrap'
+import {baseurl} from "../globals/Config"
 const { Component } = require("react");
 
 class AddUser extends Component{
-    baseUrl="http://localhost:8080"
     constructor(props){
         super(props)
         this.state = {
@@ -17,7 +17,7 @@ class AddUser extends Component{
     handleSubmit = (e)=>{
         e.preventDefault()
         console.log(this.state)
-        fetch(this.baseUrl+"/user/new", {
+        fetch(baseurl+"/user/new", {
             method:"POST",
             headers:{"Content-type":"application/json"},
             body:JSON.stringify(this.state)
