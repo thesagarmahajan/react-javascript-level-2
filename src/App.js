@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import AllUsers from './users/AllUsers';
+ import AllUsers from './functional_users/AllUsers';
 
 function App() {
   return (
