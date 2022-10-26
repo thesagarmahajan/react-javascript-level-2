@@ -1,6 +1,6 @@
 import { Component } from "react";
 import {baseurl} from "../globals/Config"
-import {Button, Form, Table, Modal} from "react-bootstrap"
+import {Button, Form, Table, Modal, Container} from "react-bootstrap"
 
 class UserEditModal extends Component{
 
@@ -160,6 +160,7 @@ class AllUsers extends Component{
     render(){
         return (
             <>
+            <Container>
                 <h1>Class CRUD</h1>
                 <Table stripped="1" border="1" hover>
                     <thead>
@@ -180,6 +181,7 @@ class AllUsers extends Component{
                     </tbody>
                 </Table>
                 <UserEditModal udata={this.state.userToUpdate} editmodal={this.state.editModal} handleClose={this.handleClose} handleEditModalSubmit={(e, udata)=>this.onEditModalSubmit(e, udata)} handleModalFormChange={this.handleModalFormChange} />
+            </Container>
             </>
         )
     }

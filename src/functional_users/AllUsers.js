@@ -1,14 +1,14 @@
 import {baseurl} from "../globals/Config"
-import {Button, Form, Table, Modal} from "react-bootstrap"
+import {Button, Form, Table, Modal, Container} from "react-bootstrap"
 import { useEffect, useState } from "react"
 
 function UserInfoRow(props){
     return(
         <tr>
+            <td>{props.id}</td>
             <td>{props.name}</td>
             <td>{props.email}</td>
             <td>{props.phone}</td>
-            <td>{props.password}</td>
             <td>
                 <Button variant="info" type="button">E</Button>
                 <Button variant="danger" type="button">D</Button>
@@ -31,6 +31,7 @@ function AllUsers(){
     
     return (
         <>
+        <Container>
         <h1>Functional CRUD</h1>
         <Table stripped="1" border="1" hover>
                     <thead>
@@ -50,6 +51,7 @@ function AllUsers(){
                         }
                     </tbody>
                 </Table>
+                </Container>
                 </>
     )
 }

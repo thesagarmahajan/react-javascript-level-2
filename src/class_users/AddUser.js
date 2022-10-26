@@ -45,7 +45,7 @@ class AddUser extends Component{
         return (
             <Row className="justify-content-md-center">
                 <Col xs={8} sm={8} lg={8} className="pt-4">
-                    <h1>Add User</h1>
+                    <h1>Add User (Class Component)</h1>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Group className='mb-3'>
                             <Form.Control type="text" name="name" value={this.state.name} onChange={this.handleChange} placeholder="Name" />
