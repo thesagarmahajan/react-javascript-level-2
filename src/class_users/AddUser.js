@@ -1,6 +1,6 @@
 // Imported bootstrap.min.css in index.js file only once
 // import 'bootstrap/dist/css/bootstrap.min.css'
-import {Form, Row, Button, Col} from 'react-bootstrap'
+import {Form, Row, Button, Col, Container} from 'react-bootstrap'
 import {baseurl} from "../globals/Config"
 const { Component } = require("react");
 
@@ -43,6 +43,7 @@ class AddUser extends Component{
     }
     render(){
         return (
+            <Container>
             <Row className="justify-content-md-center">
                 <Col xs={8} sm={8} lg={8} className="pt-4">
                     <h1>Add User (Class Component)</h1>
@@ -65,6 +66,7 @@ class AddUser extends Component{
                     </Form>
                 </Col>
             </Row>
+            </Container>
         )
     }
 }

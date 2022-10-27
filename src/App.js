@@ -12,11 +12,16 @@ import {
   Route,
 } from "react-router-dom";
 import Entry from './Entry';
+import Welcome from './Welcome';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Entry />,
     children:[
+      {
+        path: "/",
+        element: <Welcome />,
+      },
       {
         path: "/add_users_functional",
         element: <AddUserFunctional />,

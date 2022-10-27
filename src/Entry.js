@@ -5,7 +5,7 @@ function Entry(){
         <>
             <Navbar bg="dark" variant="dark">
                 <Container>
-                <Navbar.Brand href="#home">Demos</Navbar.Brand>
+                <Navbar.Brand href="/">Demos</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link href="add_users_functional">Add User (F)</Nav.Link>
                     <Nav.Link href="all_users_functional">All Users (F)</Nav.Link>

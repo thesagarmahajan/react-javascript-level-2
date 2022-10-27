@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Form, Row, Button, Col} from 'react-bootstrap'
+import {Form, Row, Button, Col, Container} from 'react-bootstrap'
 import {baseurl} from "../globals/Config"
 
 function AddUser(){
@@ -38,6 +38,7 @@ function AddUser(){
         console.log(`${JSON.stringify(user)}`)
     }
     return(
+        <Container>
         <Row className="justify-content-md-center">
                 <Col xs={8} sm={8} lg={8} className="pt-4">
                     <h2>Add User (Functional Component)</h2>
@@ -60,6 +61,7 @@ function AddUser(){
                     </Form>
                 </Col>
             </Row>
+        </Container>
     )
 }
 
