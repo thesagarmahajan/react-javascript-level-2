@@ -6,22 +6,6 @@ class UserEditModal extends Component{
 
     constructor(props){
         super(props)
-        this.state={
-            udata:{
-                name:"",
-                email:"",
-                phone:""
-            }
-        }
-    }
-
-    handleModalFormChange = (e)=>{
-        this.setState({
-            udata:{
-                [e.target.name]:e.target.value
-            }
-        })
-        console.log(this.state)
     }
 
     render(){
@@ -77,7 +61,6 @@ class UserInfoRow extends Component{
 
 class AllUsers extends Component{
 
-
     constructor(props){
         super(props)
         this.state = {
@@ -94,12 +77,6 @@ class AllUsers extends Component{
     componentDidMount(){
         fetch(baseurl+"/user/all").then(res=>res.json()).then(data=>this.setState({udata:data}))
     }
-
-
-    handleUpdate = () => {
-        console.log("This is handleUpdate")
-    }
-
 
     handleDelete = (id) =>{
         fetch(baseurl+"/user/delete/"+id, {method:"DELETE"}).then(res=>{
