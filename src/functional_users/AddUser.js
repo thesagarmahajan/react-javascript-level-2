@@ -13,12 +13,13 @@ function AddUser(){
 
     function handleSubmit(e){
         e.preventDefault()
-        fetch(baseurl+"/user/new", {
+        fetch(baseurl+"/users", {
             method:"POST",
             headers:{"Content-type":"application/json"},
             body:JSON.stringify(user)
         }).then(res=>{
-            if(res.status===200){
+            console.log(res)
+            if(res.status===201){
                 alert("User Created Successfully")
                 setUser({
                     name:"",

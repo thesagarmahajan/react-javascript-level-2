@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "name": "sagar mahajan",
+      "email": "sagar@gmail.com",
+      "phone": "1231231232",
+      "password": "123123",
+      "id": 2
+    },
+    {
+      "name": "Milind ",
+      "email": "milind@gmail.com",
+      "phone": "1231231232",
+      "password": "123123",
+      "id": 3
+    },
+    {
+      "name": "Ninad",
+      "email": "ninad@gmail.com",
+      "phone": "1231231232",
+      "password": "123123",
+      "id": 4
+    }
+  ]
+}

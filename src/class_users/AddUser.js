@@ -17,12 +17,12 @@ class AddUser extends Component{
     handleSubmit = (e)=>{
         e.preventDefault()
         console.log(this.state)
-        fetch(baseurl+"/user/new", {
+        fetch(baseurl+"/users", {
             method:"POST",
             headers:{"Content-type":"application/json"},
             body:JSON.stringify(this.state)
         }).then(res=>{
-            if(res.status===200){
+            if(res.status===201){
                 alert("User Created Successfully")
                 this.setState({
                     name:"",

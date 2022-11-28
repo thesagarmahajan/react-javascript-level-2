@@ -75,11 +75,11 @@ class AllUsers extends Component{
     }
 
     componentDidMount(){
-        fetch(baseurl+"/user/all").then(res=>res.json()).then(data=>this.setState({udata:data}))
+        fetch(baseurl+"/users").then(res=>res.json()).then(data=>this.setState({udata:data}))
     }
 
     handleDelete = (id) =>{
-        fetch(baseurl+"/user/delete/"+id, {method:"DELETE"}).then(res=>{
+        fetch(baseurl+"/users/"+id, {method:"DELETE"}).then(res=>{
             if(true){
                 alert("User Deleted Successfully")
                 let filteredUsers = this.state.udata.filter(user=>{
@@ -111,7 +111,7 @@ class AllUsers extends Component{
         e.preventDefault()
         console.log(e)
         console.log(udata)
-        fetch(`${baseurl}/user/update`, {
+        fetch(`${baseurl}/users/${udata.id}`, {
             method:"PUT",
             body:JSON.stringify(udata),
             headers:{

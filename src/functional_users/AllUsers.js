@@ -54,7 +54,8 @@ function AllUsers(){
     })
 
     function deleteUser(id){
-        fetch(baseurl+"/user/delete/"+id, {method:"DELETE"}).then(res=>{
+        fetch(baseurl+"/users/"+id, {method:"DELETE"}).then(res=>{
+            console.log(res.status==200)
             if(true){
                 alert("User Deleted Successfully")
                 let filteredUsers = users.filter(user=>{
@@ -71,7 +72,7 @@ function AllUsers(){
     }
 
     function getData(){
-        fetch(baseurl+"/user/all").then(res=>res.json()).then(data=>setUsers(data))
+        fetch(baseurl+"/users").then(res=>res.json()).then(data=>setUsers(data))
     }
 
     function handleEditButtonClick(user){
