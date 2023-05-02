@@ -1,3 +1,3 @@
-let baseurl ="http://localhost:8080"
+let baseurl ="http://localhost:3004"
 
 export  {baseurl};

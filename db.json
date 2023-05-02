@@ -1,18 +1,18 @@
 {
   "users": [
     {
-      "name": "Sample User 1",
-      "email": "user1@somewhere.com",
-      "phone": "1231231232",
-      "password": "123123",
-      "id": 1
-    },
-    {
-      "name": "Sample User 2",
+      "name": "Sample User 3",
       "email": "user2@somewhere.com",
       "phone": "4564564564",
       "password": "456456",
       "id": 2
+    },
+    {
+      "name": "sagar mahajan",
+      "email": "sagar@gmail.com",
+      "phone": "1231231232",
+      "password": "123123",
+      "id": 3
     }
   ]
 }
